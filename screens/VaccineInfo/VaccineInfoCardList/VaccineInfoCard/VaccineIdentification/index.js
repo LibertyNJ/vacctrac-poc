@@ -4,20 +4,17 @@ import { StyleSheet, View } from 'react-native';
 import VaccineImage from './VaccineImage';
 import VaccineName from './VaccineName';
 
-export default function Header() {
+export default function VaccineIdentification({ image, name }) {
   return (
-    <View style={styles.header}>
-      <VaccineName />
-      <VaccineImage />
+    <View style={styles.view}>
+      <VaccineName name={name} />
+      <VaccineImage image={image} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-    borderStyle: 'solid',
+  view: {
     display: 'flex',
     flexDirection: 'row',
     padding: 16,

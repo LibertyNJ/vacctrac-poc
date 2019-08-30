@@ -1,19 +1,14 @@
 import React from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
 
-import Header from './components/Header';
 import Navigation from './components/Navigation';
 
-import Home from './views/Home';
-import Info from './views/Info';
-import Todo from './views/Todo';
+import Home from './screens/Home';
+import VaccineInfo from './screens/VaccineInfo';
+import YourVaccinations from './screens/YourVaccinations';
 
 export default class App extends React.Component {
   static styles = StyleSheet.create({
-    body: { flex: 1, paddingHorizontal: 16 },
-    scheduledEvent: { marginBottom: 16 },
-    section: { marginBottom: 16 },
-    sectionHeader: { fontWeight: 'bold', marginBottom: 16 },
     view: {
       flex: 1,
       paddingTop: StatusBar.currentHeight,
@@ -21,7 +16,7 @@ export default class App extends React.Component {
   });
 
   state = {
-    activeView: 'Home',
+    activeView: 'home',
   };
 
   handleNavigationButtonPress = targetView => {
@@ -30,26 +25,12 @@ export default class App extends React.Component {
 
   render = () => (
     <View style={App.styles.view}>
-      <Header />
-      <View style={App.styles.body}>
-        {this.state.activeView === 'Home' && <Home />}
-        {this.state.activeView === 'Info' && <Info />}
-        {this.state.activeView === 'Todo' && <Todo />}
-      </View>
+      {this.state.activeView === 'home' && <Home />}
+      {this.state.activeView === 'vaccine-info' && <VaccineInfo />}
+      {this.state.activeView === 'your-vaccinations' && <YourVaccinations />}
       <Navigation
         handleNavigationButtonPress={this.handleNavigationButtonPress}
       />
     </View>
   );
 }
-
-// const styles = StyleSheet.create({
-//   body: { flex: 1, paddingHorizontal: 16 },
-//   scheduledEvent: { marginBottom: 16 },
-//   section: { marginBottom: 16 },
-//   sectionHeader: { fontWeight: 'bold', marginBottom: 16 },
-//   view: {
-//     flex: 1,
-//     paddingTop: StatusBar.currentHeight,
-//   },
-// });
