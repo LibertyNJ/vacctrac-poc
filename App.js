@@ -1,36 +1,29 @@
 import React from 'react';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import Navigation from './components/Navigation';
+import reducers from './reducers';
 
 import Home from './screens/Home';
-import VaccineInfo from './screens/VaccineInfo';
-import YourVaccinations from './screens/YourVaccinations';
+import Info from './screens/Info';
+import Vaccinations from './screens/Vaccinations';
 
-export default class App extends React.Component {
-  static styles = StyleSheet.create({
-    view: {
-      flex: 1,
-      paddingTop: StatusBar.currentHeight,
-    },
-  });
+const store = createStore(reducers);
 
-  state = {
-    activeView: 'home',
-  };
+const Navigation = createBottomTabNavigator({
+  Home,
+  Vaccinations,
+  Info,
+});
 
-  handleNavigationButtonPress = targetView => {
-    this.setState({ activeView: targetView });
-  };
+const AppContainer = createAppContainer(Navigation);
 
-  render = () => (
-    <View style={App.styles.view}>
-      {this.state.activeView === 'home' && <Home />}
-      {this.state.activeView === 'vaccine-info' && <VaccineInfo />}
-      {this.state.activeView === 'your-vaccinations' && <YourVaccinations />}
-      <Navigation
-        handleNavigationButtonPress={this.handleNavigationButtonPress}
-      />
-    </View>
+export default function App() {
+  return (
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
   );
 }

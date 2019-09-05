@@ -1,26 +1,18 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import NavigationButton from './NavigationButton';
 
-export default function Navigation({ handleNavigationButtonPress }) {
+import { Link } from 'react-router-native';
+
+export default function Navigation() {
   return (
     <View style={styles.view}>
-      <NavigationButton
-        onPress={() => handleNavigationButtonPress('home')}
-        style={styles.button}
-        title="Home"
-      />
-      <NavigationButton
-        onPress={() => handleNavigationButtonPress('your-vaccinations')}
-        style={styles.button}
-        title="Your vaccinations"
-      />
-      <NavigationButton
-        onPress={() => handleNavigationButtonPress('vaccine-info')}
-        style={styles.button}
-        title="Vaccine info"
-      />
+      <NavigationButton to="/">Home</NavigationButton>
+      <NavigationButton to="/your-vaccinations">
+        Your Vaccinations
+      </NavigationButton>
+      <NavigationButton to="/vaccine-info">Vaccine Info</NavigationButton>
     </View>
   );
 }

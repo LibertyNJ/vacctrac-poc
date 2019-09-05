@@ -1,27 +1,31 @@
 import React from 'react';
 
+import Icon from '@expo/vector-icons/FontAwesome5';
+
 import Screen from '../../components/Screen';
 import Section from '../../components/Section';
 
-import EventList from './EventList';
-import ProcedureDate from './ProcedureDate';
-import RemainingVaccinations from './RemainingVaccinations';
+import EventList from './components/EventList';
+
+import ProcedureDatePicker from './containers/ProcedureDatePicker';
+import UpcomingEventList from './containers/UpcomingEventList';
+import VaccinationCounter from './containers/VaccinationCounter';
+
+Home.navigationOptions = {
+  tabBarIcon: ({ tintColor }) => (
+    <Icon color={tintColor} name="home" size={25} />
+  ),
+};
 
 export default function Home() {
   return (
     <Screen heading="VaccTrac">
       <Section heading="Summary">
-        <ProcedureDate />
-        <RemainingVaccinations />
+        <ProcedureDatePicker />
+        <VaccinationCounter />
       </Section>
       <Section heading="Upcoming events">
-        <EventList
-          events={[
-            { date: '08/08/2050', event: 'Shingrix vaccination', key: '1' },
-            { date: '08/10/2050', event: 'TDaP vaccination', key: '2' },
-            { date: '08/12/2050', event: 'Surgery', key: '3' },
-          ]}
-        />
+        <UpcomingEventList />
       </Section>
     </Screen>
   );

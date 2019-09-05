@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import InfoButton from './InfoButton';
 import VaccineIdentification from './VaccineIdentification';
 
-export default function VaccineInfoCard({ item }) {
+export default function VaccineInfoListItem({ item }) {
   return (
     <View style={styles.view}>
       <VaccineIdentification image={item.image} name={item.name} />

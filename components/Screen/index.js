@@ -1,14 +1,14 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native';
 
 import Header from './Header';
 
 export default function Screen({ children, heading }) {
   return (
-    <>
+    <View style={styles.screen}>
       <Header>{heading}</Header>
       <View style={styles.body}>{children}</View>
-    </>
+    </View>
   );
 }
 
@@ -17,4 +17,9 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     paddingHorizontal: 16,
   },
+  screen: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+  },
 });
+

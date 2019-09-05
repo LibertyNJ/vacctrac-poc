@@ -1,8 +1,12 @@
 import React from 'react';
-import { Button, StyleSheet } from 'react-native';
+import { Button, StyleSheet, Text } from 'react-native';
 
-export default function NavigationButton({ onPress, title }) {
-  return <Button onPress={onPress} style={styles.button} title={title} />;
+export default function NavigationButton({ children, to }) {
+  return (
+    <Link to={to} underlayColor="#fff">
+      <Text>{children}</Text>
+    </Link>
+  );
 }
 
 const styles = StyleSheet.create({
