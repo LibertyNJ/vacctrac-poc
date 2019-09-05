@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import reducers from './reducers';
 
+import About from './screens/About';
 import Home from './screens/Home';
 import Info from './screens/Info';
 import Vaccinations from './screens/Vaccinations';
@@ -16,6 +17,7 @@ const Navigation = createBottomTabNavigator({
   Home,
   Vaccinations,
   Info,
+  About,
 });
 
 const AppContainer = createAppContainer(Navigation);
