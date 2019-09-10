@@ -1,6 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { StyleSheet, Text } from 'react-native';
+
 import { connect } from 'react-redux';
+
+import Bold from '../../../components/Bold';
+import Paragraph from '../../../components/Paragraph';
 
 export default connect(mapStateToProps)(Counter);
 
@@ -15,16 +21,25 @@ function isCompleted({ completed }) {
   return !!completed;
 }
 
-function Counter({ count }) {
+Counter.propTypes = {
+  count: PropTypes.number,
+  style: PropTypes.object,
+};
+
+function Counter({ count, style }) {
   return (
-    <Text style={styles.text}>
-      {count
-        ? `You have ${count} vaccinations remaining.`
-        : 'You have completed all required vaccinations!'}
-    </Text>
+    <Paragraph last style={[styles.Paragraph, style]}>
+      {count ? (
+        <Text>
+          You have <Bold>{count.toString()}</Bold> vaccinations remaining.
+        </Text>
+      ) : (
+        'You have completed all required vaccinations.'
+      )}
+    </Paragraph>
   );
 }
 
 const styles = StyleSheet.create({
-  text: {},
+  Paragraph: {},
 });

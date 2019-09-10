@@ -1,17 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 
-export default function Header({ children }) {
+import { StyleSheet, View } from 'react-native';
+
+import Heading from '../Heading';
+
+Header.propTypes = {
+  children: PropTypes.string.isRequired,
+  style: PropTypes.object,
+};
+
+export default function Header({ children, style }) {
   return (
-    <View style={styles.header}>
-      <Text style={styles.heading}>{children}</Text>
+    <View style={[styles.View, style]}>
+      <Heading level={2} style={styles.Text}>
+        {children}
+      </Heading>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {},
-  heading: {
-    fontSize: 20,
-  },
+  Heading: {},
+  View: {},
 });

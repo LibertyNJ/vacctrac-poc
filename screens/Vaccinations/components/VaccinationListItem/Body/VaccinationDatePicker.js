@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import DatePicker from '../../../components/DatePicker';
+import DatePicker from '../../../../../components/DatePicker';
 
-import { setVaccinationDate } from '../../../actions/creators';
+import { setVaccinationDate } from '../../../../../actions/creators';
 
 export default connect(
   null,

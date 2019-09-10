@@ -1,25 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { StatusBar, StyleSheet, View } from 'react-native';
 
 import Header from './Header';
 
-export default function Screen({ children, heading }) {
+Screen.propTypes = {
+  children: PropTypes.node.isRequired,
+  heading: PropTypes.string.isRequired,
+  style: PropTypes.object,
+};
+
+export default function Screen({ children, heading, style }) {
   return (
-    <View style={styles.screen}>
-      <Header>{heading}</Header>
-      <View style={styles.body}>{children}</View>
+    <View style={[styles.View, style]}>
+      <Header style={styles.Header}>{heading}</Header>
+      {children}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  body: {
-    flexShrink: 1,
-    paddingHorizontal: 16,
-  },
-  screen: {
+  Header: {},
+  View: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
   },
 });
-

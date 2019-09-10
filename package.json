@@ -10,6 +10,7 @@
     "test:watch": "npm test -- --watch"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.1",
     "expo": "^34.0.1",
     "prop-types": "^15.7.2",
     "react": "16.8.3",

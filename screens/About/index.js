@@ -1,36 +1,39 @@
 import React from 'react';
 
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import Icon from '@expo/vector-icons/FontAwesome5';
 
+import Bold from '../../components/Bold';
 import Paragraph from '../../components/Paragraph';
 import Screen from '../../components/Screen';
 import Section from '../../components/Section';
 
 Home.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
-    <Icon color={tintColor} name="question" size={25} />
+    <Icon color={tintColor} name="question" size={24} />
   ),
 };
 
 export default function Home() {
   return (
     <Screen heading="About VaccTrac">
-      <ScrollView>
+      <ScrollView style={styles.ScrollView}>
         <Section heading="Intent">
           <Paragraph>
             VaccTrac is a convenient way for heart transplant patients keep
             track of vaccinations they need to receive before their procedure,
             and get information about vaccines.
           </Paragraph>
-          <Paragraph>
+          <Paragraph last>
             VaccTrac is not a replacement for advice from a licensed health care
             provider. A licensed health care provider should be consulted as the
             final authority regarding your vaccination schedule.
           </Paragraph>
         </Section>
         <Section heading="Disclaimer">
-          <Paragraph>Last updated: September 5, 2019</Paragraph>
+          <Paragraph>
+            Last updated: <Bold>September 5, 2019</Bold>
+          </Paragraph>
           <Paragraph>
             The information contained on VaccTrac is for general information
             purposes only. VaccTrac is not endorsed by any pharmaceutical
@@ -59,7 +62,7 @@ export default function Home() {
             provided or maintained by or in any way affiliated with the
             developer.
           </Paragraph>
-          <Paragraph>
+          <Paragraph last>
             Please note that the developer does not guarantee the accuracy,
             relevance, timeliness, or completeness of any information of these
             external resources.
@@ -69,3 +72,9 @@ export default function Home() {
     </Screen>
   );
 }
+
+const styles = StyleSheet.create({
+  ScrollView: {
+    paddingHorizontal: 20,
+  },
+});

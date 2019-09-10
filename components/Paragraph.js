@@ -1,12 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { StyleSheet, Text } from 'react-native';
 
-export default function Paragraph({ children }) {
-  return <Text style={styles.text}>{children}</Text>;
+Paragraph.propTypes = {
+  children: PropTypes.node.isRequired,
+  last: PropTypes.bool,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+};
+
+export default function Paragraph({ children, last, style }) {
+  return (
+    <Text style={[styles.Text, isLastParagraph(last) && styles.last, style]}>
+      {children}
+    </Text>
+  );
 }
 
 const styles = StyleSheet.create({
-  text: {
-    marginBottom: 16,
+  last: {
+    marginBottom: 0,
+  },
+  Text: {
+    lineHeight: 20,
+    marginBottom: 20,
   },
 });
+
+function isLastParagraph(last) {
+  return !!last;
+}

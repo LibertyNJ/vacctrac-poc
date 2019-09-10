@@ -1,21 +1,37 @@
 import { connect } from 'react-redux';
 
-import VaccinationList from '../components/VaccinationList';
+import { SectionList } from 'react-native';
 
-export default connect(mapStateToProps)(VaccinationList);
+export default connect(mapStateToProps)(SectionList);
 
 function mapStateToProps(state) {
   return {
-    completedVaccinations: state.vaccinations
-      .filter(vaccination => isVaccinationCompleted(vaccination))
-      .sort(compareEventDates),
-    remainingVaccinations: state.vaccinations
-      .filter(vaccination => !isVaccinationCompleted(vaccination))
-      .sort(compareEventDates),
+    sections: [
+      {
+        data: getRemainingVaccinations(state.vaccinations),
+        title: 'Remaining',
+      },
+      {
+        data: getCompletedVaccinations(state.vaccinations),
+        title: 'Completed',
+      },
+    ],
   };
 }
 
-function isVaccinationCompleted({ completed }) {
+function getRemainingVaccinations(vaccinations) {
+  return vaccinations
+    .filter(vaccination => !isCompleted(vaccination))
+    .sort(compareEventDates);
+}
+
+function getCompletedVaccinations(vaccinations) {
+  return vaccinations
+    .filter(vaccination => isCompleted(vaccination))
+    .sort(compareEventDates);
+}
+
+function isCompleted({ completed }) {
   return completed;
 }
 

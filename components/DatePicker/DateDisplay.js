@@ -1,15 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
-export default function DateDisplay({ date, label }) {
+import { StyleSheet } from 'react-native';
+
+import Bold from '../Bold';
+import Paragraph from '../Paragraph';
+
+import formatDate from '../../util/format-date';
+
+DateDisplay.propTypes = {
+  date: PropTypes.instanceOf(Date),
+  label: PropTypes.string.isRequired,
+  style: PropTypes.object,
+};
+
+export default function DateDisplay({ date, label, style }) {
   return (
-    <Text style={styles.text}>
+    <Paragraph last style={[styles.Paragraph, style]}>
       {label}
-      {date ? date.toLocaleString() : 'date not set!'}
-    </Text>
+      {'\n'}
+      <Bold>{date ? formatDate(date) : 'Date not set!'}</Bold>
+    </Paragraph>
   );
 }
 
 const styles = StyleSheet.create({
-  text: {},
+  Paragraph: {},
 });

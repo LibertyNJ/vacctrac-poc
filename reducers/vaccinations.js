@@ -1,5 +1,6 @@
 import {
   ADD_VACCINATION_DOSE,
+  REMOVE_VACCINATION_DOSE,
   SET_VACCINATION_DATE,
   TOGGLE_VACCINATION_COMPLETION,
 } from '../actions/types';
@@ -18,6 +19,7 @@ export default function vaccinations(state = defaultState, action) {
         ),
         {
           canAddDose: true,
+          createdById: action.id,
           completed: false,
           date: null,
           dose: previousVaccination.dose + 1,
@@ -26,6 +28,14 @@ export default function vaccinations(state = defaultState, action) {
           name: previousVaccination.name,
         },
       ];
+    case REMOVE_VACCINATION_DOSE:
+      return state
+        .filter(vaccination => !isSameId(vaccination, action))
+        .map(vaccination =>
+          isCreator(vaccination, action)
+            ? { ...vaccination, canAddDose: true }
+            : vaccination
+        );
     case SET_VACCINATION_DATE:
       return state.map(vaccination =>
         isSameId(vaccination, action)
@@ -45,6 +55,10 @@ export default function vaccinations(state = defaultState, action) {
 
 function isSameId({ id: idA }, { id: idB }) {
   return idA === idB;
+}
+
+function isCreator({ id }, { createdById }) {
+  return id === createdById;
 }
 
 const vaccines = [
