@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import { StyleSheet, View } from 'react-native';
 
-import Heading from '../../../../components/Heading';
-import Paragraph from '../../../../components/Paragraph';
+import Heading from '../../../../../../components/Heading';
+import Paragraph from '../../../../../../components/Paragraph';
 
 Header.propTypes = {
   dose: PropTypes.number.isRequired,
@@ -28,7 +28,9 @@ export default function Header({ dose, name, style }) {
 }
 
 const styles = StyleSheet.create({
-  Paragraph: {},
+  Paragraph: {
+    fontWeight: 'bold',
+  },
   View: {
     flexDirection: 'row',
     justifyContent: 'space-between',

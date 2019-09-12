@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { StatusBar, StyleSheet, View } from 'react-native';
 
+import Body from './Body';
 import Header from './Header';
 
 Screen.propTypes = {
@@ -15,12 +16,15 @@ export default function Screen({ children, heading, style }) {
   return (
     <View style={[styles.View, style]}>
       <Header style={styles.Header}>{heading}</Header>
-      {children}
+      <Body style={styles.Body}>{children}</Body>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  Body: {
+    flex: 1,
+  },
   Header: {},
   View: {
     flex: 1,

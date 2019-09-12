@@ -3,7 +3,7 @@
 export default [
   {
     cdcVisSlug: 'flu.html',
-    image: require('../../assets/images/fluarix.jpg'),
+    image: require('../images/fluarix.jpg'),
     key: '1',
     name: {
       brand: 'Fluarix',
@@ -13,7 +13,7 @@ export default [
   },
   {
     cdcVisSlug: 'hep-a.html',
-    image: require('../../assets/images/havrix.jpg'),
+    image: require('../images/havrix.jpg'),
     key: '2',
     name: {
       brand: 'Havrix',
@@ -23,7 +23,7 @@ export default [
   },
   {
     cdcVisSlug: 'hep-b.html',
-    image: require('../../assets/images/engerix-b.jpg'),
+    image: require('../images/engerix-b.jpg'),
     key: '3',
     name: {
       brand: 'Engerix-B',
@@ -33,7 +33,7 @@ export default [
   },
   {
     cdcVisSlug: 'mmr.html',
-    image: require('../../assets/images/mmr.jpg'),
+    image: require('../images/mmr.jpg'),
     key: '4',
     name: {
       brand: '',
@@ -43,7 +43,7 @@ export default [
   },
   {
     cdcVisSlug: 'pcv13.html',
-    image: require('../../assets/images/prevnar-13.jpg'),
+    image: require('../images/prevnar-13.jpg'),
     key: '5',
     name: {
       brand: 'Prevnar 13',
@@ -53,7 +53,7 @@ export default [
   },
   {
     cdcVisSlug: 'mening.html',
-    image: require('../../assets/images/menactra.jpg'),
+    image: require('../images/menactra.jpg'),
     key: '6',
     name: {
       brand: 'Menactra',
@@ -63,7 +63,7 @@ export default [
   },
   {
     cdcVisSlug: 'shingles-recombinant.html',
-    image: require('../../assets/images/shingrix.jpg'),
+    image: require('../images/shingrix.jpg'),
     key: '7',
     name: {
       brand: 'Shingrix',
@@ -73,7 +73,7 @@ export default [
   },
   {
     cdcVisSlug: 'tdap.html',
-    image: require('../../assets/images/adacel.jpg'),
+    image: require('../images/adacel.jpg'),
     key: '8',
     name: {
       brand: 'Adacel',
@@ -83,7 +83,7 @@ export default [
   },
   {
     cdcVisSlug: 'ppv.html',
-    image: require('../../assets/images/pneumovax-23.jpg'),
+    image: require('../images/pneumovax-23.jpg'),
     key: '9',
     name: {
       brand: 'Pneumovax 23',

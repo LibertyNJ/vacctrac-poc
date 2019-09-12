@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { StyleSheet, View } from 'react-native';
 
-import Heading from '../../../components/Heading';
+import Heading from '../../../../../components/Heading';
 
 SectionHeader.propTypes = {
   section: PropTypes.shape({
@@ -26,7 +26,9 @@ export default function SectionHeader({ section: { data, title } }) {
 
 const styles = StyleSheet.create({
   Heading: {},
-  View: {},
+  View: {
+    backgroundColor: 'white',
+  },
 });
 
 function isEmpty(array) {

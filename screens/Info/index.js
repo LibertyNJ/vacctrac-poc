@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 
 import Icon from '@expo/vector-icons/FontAwesome5';
 
 import Screen from '../../components/Screen';
-import VaccineInfoListItem from './components/VaccineInfoListItem';
 
-import vaccineInfo from './vaccine-info';
+import ItemSeparator from './components/ItemSeparator';
+import ListFooter from './components/ListFooter';
+import ListHeader from './components/ListHeader';
+import VaccineInfoCard from './components/VaccineInfoCard';
+
+import vaccineInfo from './scripts/vaccine-info';
 
 Info.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
@@ -20,7 +24,10 @@ export default function Info() {
     <Screen heading="Vaccine Information">
       <FlatList
         data={vaccineInfo}
-        renderItem={VaccineInfoListItem}
+        ItemSeparatorComponent={ItemSeparator}
+        ListFooterComponent={ListFooter}
+        ListHeaderComponent={ListHeader}
+        renderItem={VaccineInfoCard}
         style={styles.FlatList}
       />
     </Screen>
@@ -29,6 +36,6 @@ export default function Info() {
 
 const styles = StyleSheet.create({
   FlatList: {
-    padding: 20,
+    paddingHorizontal: 20,
   },
 });

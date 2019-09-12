@@ -4,10 +4,14 @@ import { StyleSheet } from 'react-native';
 
 import Icon from '@expo/vector-icons/FontAwesome5';
 
-import SectionHeader from './components/SectionHeader';
+import HorizontalRule from '../../components/HorizontalRule';
 import Screen from '../../components/Screen';
+
 import VaccinationList from './containers/VaccinationList';
-import VaccinationListItem from './components/VaccinationListItem';
+import Vaccination from './containers/VaccinationList/components/Vaccination';
+import ItemSeparator from './containers/VaccinationList/components/ItemSeparator';
+import ListFooter from './containers/VaccinationList/components/ListFooter';
+import SectionHeader from './containers/VaccinationList/components/SectionHeader';
 
 Vaccinations.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
@@ -19,8 +23,11 @@ export default function Vaccinations() {
   return (
     <Screen heading="Your Vaccinations">
       <VaccinationList
-        renderItem={VaccinationListItem}
+        ItemSeparatorComponent={ItemSeparator}
+        ListFooterComponent={ListFooter}
+        renderItem={Vaccination}
         renderSectionHeader={SectionHeader}
+        stickySectionHeadersEnabled
         style={styles.VaccinationList}
       />
     </Screen>

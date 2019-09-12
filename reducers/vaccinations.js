@@ -5,6 +5,8 @@ import {
   TOGGLE_VACCINATION_COMPLETION,
 } from '../actions/types';
 
+import { get, set } from '../data';
+
 export default function vaccinations(state = defaultState, action) {
   switch (action.type) {
     case ADD_VACCINATION_DOSE:
@@ -14,11 +16,12 @@ export default function vaccinations(state = defaultState, action) {
       return [
         ...state.map(vaccination =>
           isSameId(vaccination, action)
-            ? { ...vaccination, canAddDose: false }
+            ? { ...vaccination, canAddDose: false, canToggleCompleted: false }
             : vaccination
         ),
         {
           canAddDose: true,
+          canToggleCompleted: true,
           createdById: action.id,
           completed: false,
           date: null,
@@ -33,7 +36,7 @@ export default function vaccinations(state = defaultState, action) {
         .filter(vaccination => !isSameId(vaccination, action))
         .map(vaccination =>
           isCreator(vaccination, action)
-            ? { ...vaccination, canAddDose: true }
+            ? { ...vaccination, canAddDose: true, canToggleCompleted: true }
             : vaccination
         );
     case SET_VACCINATION_DATE:
@@ -76,6 +79,7 @@ const vaccines = [
 const defaultState = vaccines.map((vaccine, index) => {
   return {
     canAddDose: true,
+    canToggleCompleted: true,
     completed: false,
     date: null,
     dose: 1,

@@ -6,9 +6,10 @@ import { StyleSheet, View } from 'react-native';
 import Body from './Body';
 import Header from './Header';
 
-VaccinationListItem.propTypes = {
+Vaccination.propTypes = {
   item: PropTypes.shape({
     canAddDose: PropTypes.bool.isRequired,
+    canToggleCompleted: PropTypes.bool.isRequired,
     completed: PropTypes.bool.isRequired,
     createdById: PropTypes.number,
     date: PropTypes.instanceOf(Date),
@@ -18,8 +19,17 @@ VaccinationListItem.propTypes = {
   }).isRequired,
 };
 
-export default function VaccinationListItem({
-  item: { canAddDose, completed, createdById, date, dose, id, name },
+export default function Vaccination({
+  item: {
+    canAddDose,
+    canToggleCompleted,
+    completed,
+    createdById,
+    date,
+    dose,
+    id,
+    name,
+  },
 }) {
   return (
     <View style={styles.View}>
@@ -32,6 +42,7 @@ export default function VaccinationListItem({
       />
       <Body
         canAddDose={canAddDose}
+        canToggleCompleted={canToggleCompleted}
         completed={completed}
         createdById={createdById}
         date={date}
@@ -50,7 +61,6 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderStyle: 'solid',
     borderWidth: 0.25,
-    marginBottom: 20,
     padding: 20,
   },
 });

@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import Icon from '@expo/vector-icons/FontAwesome5';
+
+import Button from '../../Button';
 
 import handlePress from './handle-press';
 
@@ -16,11 +19,15 @@ export default function SetDateButton({ date, handleDateSet, style }) {
     <Button
       onPress={() => handlePress(date, handleDateSet)}
       style={[styles.Button, style]}
-      title="Set date"
-    />
+    >
+      <Icon color="white" name="calendar-day" size={24} />
+    </Button>
   );
 }
 
 const styles = StyleSheet.create({
-  Button: {},
+  Button: {
+    height: 40,
+    width: 40,
+  },
 });

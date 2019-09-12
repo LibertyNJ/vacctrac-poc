@@ -7,15 +7,22 @@ import Header from './Header';
 
 Section.propTypes = {
   children: PropTypes.node.isRequired,
+  headerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   heading: PropTypes.string.isRequired,
   last: PropTypes.bool,
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
-export default function Section({ children, heading, last, style }) {
+export default function Section({
+  children,
+  headerStyle,
+  heading,
+  last,
+  style,
+}) {
   return (
     <View style={[styles.View, isLastSection(last) && styles.last, style]}>
-      <Header style={styles.Header}>{heading}</Header>
+      <Header style={[styles.Header, headerStyle]}>{heading}</Header>
       {children}
     </View>
   );

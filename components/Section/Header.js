@@ -7,7 +7,7 @@ import Heading from '../Heading';
 
 Header.propTypes = {
   children: PropTypes.string.isRequired,
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 export default function Header({ children, style }) {

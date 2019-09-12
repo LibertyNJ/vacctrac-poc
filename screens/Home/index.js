@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import Icon from '@expo/vector-icons/FontAwesome5';
 
@@ -25,24 +25,27 @@ Home.navigationOptions = {
 export default function Home() {
   return (
     <Screen heading="VaccTrac">
-      <View style={styles.View}>
-        <Section heading="Summary">
-          <ProcedureDatePicker
-            label="Your procedure is scheduled for:"
-            style={styles.ProcedureDatePicker}
-          />
-          <VaccinationCounter style={styles.VaccinationCounter} />
-        </Section>
-        <Section heading="Upcoming events">
-          <UpcomingEventList
-            ListEmptyComponent={ListEmpty}
-            renderItem={UpcomingEvent}
-            renderSectionFooter={SectionFooter}
-            renderSectionHeader={SectionHeader}
-            style={styles.UpcomingEventList}
-          />
-        </Section>
-      </View>
+      <Section heading="Summary" style={styles.SummarySection}>
+        <ProcedureDatePicker
+          label="Your procedure is scheduled for:"
+          style={styles.ProcedureDatePicker}
+        />
+        <VaccinationCounter style={styles.VaccinationCounter} />
+      </Section>
+      <Section
+        headerStyle={styles.UpcomingEventsSectionHeader}
+        heading="Upcoming events"
+        last
+        style={[styles.UpcomingEventsSection]}
+      >
+        <UpcomingEventList
+          ListEmptyComponent={ListEmpty}
+          renderItem={UpcomingEvent}
+          renderSectionFooter={SectionFooter}
+          renderSectionHeader={SectionHeader}
+          style={styles.UpcomingEventList}
+        />
+      </Section>
     </Screen>
   );
 }
@@ -51,9 +54,17 @@ const styles = StyleSheet.create({
   ProcedureDatePicker: {
     marginBottom: 20,
   },
-  UpcomingEventList: {},
-  VaccinationCounter: {},
-  View: {
+  SummarySection: {
     paddingHorizontal: 20,
   },
+  UpcomingEventList: {
+    paddingHorizontal: 20,
+  },
+  UpcomingEventsSection: {
+    flex: 1,
+  },
+  UpcomingEventsSectionHeader: {
+    paddingHorizontal: 20,
+  },
+  VaccinationCounter: {},
 });

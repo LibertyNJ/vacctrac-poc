@@ -22,10 +22,12 @@ const Navigation = createBottomTabNavigator({
 
 const AppContainer = createAppContainer(Navigation);
 
-export default function App() {
-  return (
-    <Provider store={store}>
-      <AppContainer />
-    </Provider>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    );
+  }
 }

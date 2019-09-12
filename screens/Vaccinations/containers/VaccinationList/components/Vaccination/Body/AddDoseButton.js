@@ -1,8 +1,8 @@
-import { Button } from 'react-native';
+import Button from '../../../../../../../components/Button';
 
 import { connect } from 'react-redux';
 
-import { addVaccinationDose } from '../../../../../actions/creators';
+import { addVaccinationDose } from '../../../../../../../actions/creators';
 
 export default connect(
   null,
