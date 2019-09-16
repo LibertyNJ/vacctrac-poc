@@ -1,3 +1,5 @@
+'use-strict';
+
 import { DatePickerAndroid } from 'react-native';
 
 export default async function handlePress(date, handleDateSet) {
@@ -7,9 +9,9 @@ export default async function handlePress(date, handleDateSet) {
   }
 }
 
-async function pickAndroidDate(defaultDate) {
+async function pickAndroidDate(initialDate) {
   try {
-    return await DatePickerAndroid.open({ date: defaultDate || new Date() });
+    return await DatePickerAndroid.open({ date: initialDate || new Date() });
   } catch (error) {
     alert(error);
   }

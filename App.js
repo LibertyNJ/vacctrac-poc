@@ -1,17 +1,17 @@
+'use-strict';
+
 import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-
-import reducers from './reducers';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import About from './screens/About';
 import Home from './screens/Home';
 import Info from './screens/Info';
 import Vaccinations from './screens/Vaccinations';
 
-const store = createStore(reducers);
+import { persistor, store } from './store';
 
 const Navigation = createBottomTabNavigator({
   Home,
@@ -19,15 +19,14 @@ const Navigation = createBottomTabNavigator({
   Info,
   About,
 });
-
 const AppContainer = createAppContainer(Navigation);
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
+export default function App() {
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
         <AppContainer />
-      </Provider>
-    );
-  }
+      </PersistGate>
+    </Provider>
+  );
 }

@@ -1,3 +1,5 @@
+'use-strict';
+
 import { connect } from 'react-redux';
 
 import { SectionList } from 'react-native';
@@ -31,8 +33,8 @@ function getCompletedVaccinations(vaccinations) {
     .sort(compareEventDates);
 }
 
-function isCompleted({ completed }) {
-  return completed;
+function isCompleted({ isCompleted }) {
+  return isCompleted;
 }
 
 function compareEventDates({ date: dateA }, { date: dateB }) {

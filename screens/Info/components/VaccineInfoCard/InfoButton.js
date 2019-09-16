@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import { Linking, StyleSheet, Text } from 'react-native';
+'use-strict';
 
 import Icon from '@expo/vector-icons/FontAwesome5';
+import React from 'react';
+import { Linking, StyleSheet, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
 import Button from '../../../../components/Button';
+
+import handleError from '../../../../util/handle-error';
 
 InfoButton.propTypes = {
   cdcVisSlug: PropTypes.string.isRequired,
@@ -16,11 +18,7 @@ export default function InfoButton({ cdcVisSlug, name }) {
   return (
     <Button onPress={() => handlePress(cdcVisSlug)} style={styles.Button}>
       <Text style={styles.Text}>See CDC Vaccine Information Statement </Text>
-      <Icon
-        color="white"
-        name="external-link-alt"
-        size={14}
-      />
+      <Icon color="white" name="external-link-alt" size={14} />
     </Button>
   );
 }
@@ -41,6 +39,6 @@ async function handlePress(cdcVisSlug) {
       `https://www.cdc.gov/vaccines/hcp/vis/vis-statements/${cdcVisSlug}`
     );
   } catch (error) {
-    alert(error);
+    handleError(error);
   }
 }

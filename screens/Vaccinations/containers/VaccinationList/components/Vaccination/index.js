@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Body from './Body';
@@ -8,46 +9,29 @@ import Header from './Header';
 
 Vaccination.propTypes = {
   item: PropTypes.shape({
-    canAddDose: PropTypes.bool.isRequired,
-    canToggleCompleted: PropTypes.bool.isRequired,
-    completed: PropTypes.bool.isRequired,
-    createdById: PropTypes.number,
     date: PropTypes.instanceOf(Date),
     dose: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
+    isCompleted: PropTypes.bool.isRequired,
+    isLatestDose: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
+    previousDoseId: PropTypes.number,
   }).isRequired,
 };
 
 export default function Vaccination({
-  item: {
-    canAddDose,
-    canToggleCompleted,
-    completed,
-    createdById,
-    date,
-    dose,
-    id,
-    name,
-  },
+  item: { date, dose, id, isCompleted, isLatestDose, name, previousDoseId },
 }) {
   return (
     <View style={styles.View}>
-      <Header
-        completed={completed}
-        dose={dose}
-        id={id}
-        name={name}
-        style={styles.Header}
-      />
+      <Header dose={dose} name={name} style={styles.Header} />
       <Body
-        canAddDose={canAddDose}
-        canToggleCompleted={canToggleCompleted}
-        completed={completed}
-        createdById={createdById}
         date={date}
         id={id}
+        isCompleted={isCompleted}
+        isLatestDose={isLatestDose}
         style={styles.Body}
+        previousDoseId={previousDoseId}
       />
     </View>
   );

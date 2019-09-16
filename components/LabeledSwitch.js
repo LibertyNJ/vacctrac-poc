@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, Switch, View } from 'react-native';
 
 import Bold from './Bold';
@@ -23,7 +24,7 @@ export default function LabeledCheckBox({
 }) {
   return (
     <View style={[styles.View, style]}>
-      <Paragraph last style={styles.Paragraph}>
+      <Paragraph last>
         {label}
         {'\n'}
         <Bold>{value ? 'Yes' : 'No'}</Bold>
@@ -31,7 +32,6 @@ export default function LabeledCheckBox({
       <Switch
         disabled={disabled}
         onChange={onChange}
-        style={styles.Switch}
         thumbColor={disabled ? 'gray' : 'white'}
         trackColor={{ false: 'red', true: 'green' }}
         value={value}
@@ -41,8 +41,6 @@ export default function LabeledCheckBox({
 }
 
 const styles = StyleSheet.create({
-  Paragraph: {},
-  Switch: {},
   View: {
     flexDirection: 'row',
     justifyContent: 'space-between',

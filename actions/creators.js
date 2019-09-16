@@ -1,3 +1,5 @@
+'use-strict';
+
 import {
   ADD_VACCINATION_DOSE,
   REMOVE_VACCINATION_DOSE,
@@ -13,10 +15,10 @@ export function addVaccinationDose(id) {
   };
 }
 
-export function removeVaccinationDose(id, createdById) {
+export function removeVaccinationDose(id, previousDoseId) {
   return {
-    createdById,
     id,
+    previousDoseId,
     type: REMOVE_VACCINATION_DOSE,
   };
 }

@@ -1,8 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
-import { StyleSheet } from 'react-native';
 import Icon from '@expo/vector-icons/FontAwesome5';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 
 import Button from '../../Button';
 

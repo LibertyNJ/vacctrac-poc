@@ -1,13 +1,15 @@
+'use-strict';
+
 import { connect } from 'react-redux';
 
-import LabeledCheckBox from '../../../../../components/LabeledCheckBox';
+import LabeledSwitch from '../../../../../../../../components/LabeledSwitch';
 
-import { toggleVaccinationCompletion } from '../../../../../actions/creators';
+import { toggleVaccinationCompletion } from '../../../../../../../../actions/creators';
 
 export default connect(
   null,
   mapDispatchToProps
-)(LabeledCheckBox);
+)(LabeledSwitch);
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {

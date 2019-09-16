@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import VaccineImage from './VaccineImage';
@@ -16,13 +17,12 @@ export default function VaccineIdentification({ image, name, style }) {
   return (
     <View style={[styles.View, style]}>
       <VaccineName name={name} style={styles.VaccineName} />
-      <VaccineImage image={image} style={styles.VaccineImage} />
+      <VaccineImage image={image} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  VaccineImage: {},
   VaccineName: {
     flexGrow: 1,
     flexShrink: 1,

@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, TouchableNativeFeedback, View } from 'react-native';
 
 Button.propTypes = {

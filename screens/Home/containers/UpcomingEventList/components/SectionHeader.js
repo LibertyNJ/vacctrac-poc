@@ -1,7 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
-import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { View } from 'react-native';
 
 import Heading from '../../../../../components/Heading';
 
@@ -13,15 +14,8 @@ SectionHeader.propTypes = {
 
 export default function SectionHeader({ section: { title } }) {
   return (
-    <View style={styles.View}>
-      <Heading level={3} style={styles.Text}>
-        {title}
-      </Heading>
+    <View>
+      <Heading level={3}>{title}</Heading>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  Heading: {},
-  View: {},
-});

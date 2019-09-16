@@ -1,7 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
-import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { View } from 'react-native';
 
 Body.propTypes = {
   children: PropTypes.node.isRequired,
@@ -9,9 +10,5 @@ Body.propTypes = {
 };
 
 export default function Body({ children, style }) {
-  return <View style={[styles.View, style]}>{children}</View>;
+  return <View style={style}>{children}</View>;
 }
-
-const styles = StyleSheet.create({
-  View: {},
-});

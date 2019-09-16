@@ -1,10 +1,9 @@
-import React from 'react';
-
-import { StyleSheet } from 'react-native';
+'use-strict';
 
 import Icon from '@expo/vector-icons/FontAwesome5';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 
-import HorizontalRule from '../../components/HorizontalRule';
 import Screen from '../../components/Screen';
 
 import VaccinationList from './containers/VaccinationList';
@@ -24,6 +23,7 @@ export default function Vaccinations() {
     <Screen heading="Your Vaccinations">
       <VaccinationList
         ItemSeparatorComponent={ItemSeparator}
+        keyExtractor={extractKey}
         ListFooterComponent={ListFooter}
         renderItem={Vaccination}
         renderSectionHeader={SectionHeader}
@@ -39,3 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
 });
+
+function extractKey({ id }) {
+  return id.toString();
+}

@@ -1,7 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
-import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { View } from 'react-native';
 
 import Paragraph from '../../../../../components/Paragraph';
 
@@ -14,15 +15,8 @@ UpcomingEvent.propTypes = {
 
 export default function UpcomingEvent({ item: { id, name } }) {
   return (
-    <View key={id} style={styles.View}>
-      <Paragraph last style={styles.Paragraph}>
-        {name}
-      </Paragraph>
+    <View key={id}>
+      <Paragraph last>{name}</Paragraph>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  Paragraph: {},
-  View: {},
-});

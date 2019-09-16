@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
 Heading.propTypes = {
@@ -10,9 +11,7 @@ Heading.propTypes = {
 };
 
 export default function Heading({ children, level, style }) {
-  return (
-    <Text style={[styles.Text, getLevelStyles(level), style]}>{children}</Text>
-  );
+  return <Text style={[getLevelStyles(level), style]}>{children}</Text>;
 }
 
 const styles = StyleSheet.create({
@@ -32,7 +31,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 20,
   },
-  Text: {},
 });
 
 function getLevelStyles(level) {

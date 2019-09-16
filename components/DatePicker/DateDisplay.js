@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
-import { StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Bold from '../Bold';
 import Paragraph from '../Paragraph';
@@ -16,14 +16,10 @@ DateDisplay.propTypes = {
 
 export default function DateDisplay({ date, label, style }) {
   return (
-    <Paragraph last style={[styles.Paragraph, style]}>
+    <Paragraph last style={style}>
       {label}
       {'\n'}
       <Bold>{date ? formatDate(date) : 'Date not set!'}</Bold>
     </Paragraph>
   );
 }
-
-const styles = StyleSheet.create({
-  Paragraph: {},
-});

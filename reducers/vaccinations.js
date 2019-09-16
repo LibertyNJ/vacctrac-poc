@@ -1,3 +1,5 @@
+'use-strict';
+
 import {
   ADD_VACCINATION_DOSE,
   REMOVE_VACCINATION_DOSE,
@@ -5,38 +7,39 @@ import {
   TOGGLE_VACCINATION_COMPLETION,
 } from '../actions/types';
 
-import { get, set } from '../data';
+import createId from '../util/create-id';
 
-export default function vaccinations(state = defaultState, action) {
+const vaccineNames = [
+  'Flu',
+  'Hepatitis A',
+  'Hepatitis B',
+  'Meningitis',
+  'MMR',
+  'PCV13',
+  'PPSV23',
+  'Shingles',
+  'TDaP',
+];
+const initialState = mapToVaccinations(vaccineNames);
+
+export default function vaccinations(state = initialState, action) {
   switch (action.type) {
     case ADD_VACCINATION_DOSE:
-      const previousVaccination = state.find(vaccination =>
-        isSameId(vaccination, action)
-      );
+      const previousVaccination = selectVaccinationById(state, action.id);
       return [
         ...state.map(vaccination =>
           isSameId(vaccination, action)
-            ? { ...vaccination, canAddDose: false, canToggleCompleted: false }
+            ? { ...vaccination, isLatestDose: false }
             : vaccination
         ),
-        {
-          canAddDose: true,
-          canToggleCompleted: true,
-          createdById: action.id,
-          completed: false,
-          date: null,
-          dose: previousVaccination.dose + 1,
-          id: state.length + 1,
-          key: (state.length + 1).toString(),
-          name: previousVaccination.name,
-        },
+        createVaccinationDose(previousVaccination),
       ];
     case REMOVE_VACCINATION_DOSE:
       return state
         .filter(vaccination => !isSameId(vaccination, action))
         .map(vaccination =>
-          isCreator(vaccination, action)
-            ? { ...vaccination, canAddDose: true, canToggleCompleted: true }
+          isPreviousDose(vaccination, action)
+            ? { ...vaccination, isLatestDose: true }
             : vaccination
         );
     case SET_VACCINATION_DATE:
@@ -48,7 +51,7 @@ export default function vaccinations(state = defaultState, action) {
     case TOGGLE_VACCINATION_COMPLETION:
       return state.map(vaccination =>
         isSameId(vaccination, action)
-          ? { ...vaccination, completed: !vaccination.completed }
+          ? { ...vaccination, isCompleted: !vaccination.isCompleted }
           : vaccination
       );
     default:
@@ -56,35 +59,36 @@ export default function vaccinations(state = defaultState, action) {
   }
 }
 
+function mapToVaccinations(vaccineNames) {
+  return vaccineNames.map(createVaccination);
+}
+
+function selectVaccinationById(vaccinations, id) {
+  return vaccinations.find(vaccination => vaccination.id === id);
+}
+
+function createVaccinationDose({ dose, id, name }) {
+  const vaccination = createVaccination(name);
+  vaccination.dose = dose + 1;
+  vaccination.previousDoseId = id;
+  return vaccination;
+}
+
+function createVaccination(name) {
+  return {
+    date: null,
+    dose: 1,
+    id: createId(),
+    isCompleted: false,
+    isLatestDose: true,
+    name,
+  };
+}
+
+function isPreviousDose({ id }, { previousDoseId }) {
+  return id === previousDoseId;
+}
+
 function isSameId({ id: idA }, { id: idB }) {
   return idA === idB;
 }
-
-function isCreator({ id }, { createdById }) {
-  return id === createdById;
-}
-
-const vaccines = [
-  'Flu',
-  'Hepatitis A',
-  'Hepatitis B',
-  'Meningitis',
-  'MMR',
-  'PCV13',
-  'PPSV23',
-  'Shingles',
-  'TDaP',
-];
-
-const defaultState = vaccines.map((vaccine, index) => {
-  return {
-    canAddDose: true,
-    canToggleCompleted: true,
-    completed: false,
-    date: null,
-    dose: 1,
-    id: index,
-    key: index.toString(),
-    name: vaccine,
-  };
-});

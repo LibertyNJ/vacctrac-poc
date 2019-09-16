@@ -1,7 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
-import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { View } from 'react-native';
 
 import Heading from '../Heading';
 
@@ -12,15 +13,8 @@ Header.propTypes = {
 
 export default function Header({ children, style }) {
   return (
-    <View style={[styles.View, style]}>
-      <Heading level={2} style={styles.Text}>
-        {children}
-      </Heading>
+    <View style={style}>
+      <Heading level={2}>{children}</Heading>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  Heading: {},
-  View: {},
-});

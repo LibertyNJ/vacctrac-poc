@@ -1,8 +1,8 @@
-import React from 'react';
-
-import { StyleSheet } from 'react-native';
+'use-strict';
 
 import Icon from '@expo/vector-icons/FontAwesome5';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 
 import Screen from '../../components/Screen';
 import Section from '../../components/Section';
@@ -30,7 +30,7 @@ export default function Home() {
           label="Your procedure is scheduled for:"
           style={styles.ProcedureDatePicker}
         />
-        <VaccinationCounter style={styles.VaccinationCounter} />
+        <VaccinationCounter />
       </Section>
       <Section
         headerStyle={styles.UpcomingEventsSectionHeader}
@@ -39,6 +39,7 @@ export default function Home() {
         style={[styles.UpcomingEventsSection]}
       >
         <UpcomingEventList
+          keyExtractor={extractKey}
           ListEmptyComponent={ListEmpty}
           renderItem={UpcomingEvent}
           renderSectionFooter={SectionFooter}
@@ -66,5 +67,8 @@ const styles = StyleSheet.create({
   UpcomingEventsSectionHeader: {
     paddingHorizontal: 20,
   },
-  VaccinationCounter: {},
 });
+
+function extractKey({ id }) {
+  return id;
+}

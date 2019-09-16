@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Heading from '../../../../../components/Heading';
@@ -18,11 +19,11 @@ VaccineName.propTypes = {
 
 export default function VaccineName({ name, style }) {
   return (
-    <View style={[styles.View, style]}>
+    <View style={style}>
       <Heading level={2} style={styles.Heading}>
         {name.simple}
       </Heading>
-      <Paragraph last style={styles.Paragraph}>
+      <Paragraph last>
         {name.full}
         {'\n'}
         <Italic>{name.brand}</Italic>
@@ -36,6 +37,4 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: 20,
   },
-  Paragraph: {},
-  View: {},
 });

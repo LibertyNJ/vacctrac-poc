@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
 
 import Body from './Body';
@@ -15,7 +16,7 @@ Screen.propTypes = {
 export default function Screen({ children, heading, style }) {
   return (
     <View style={[styles.View, style]}>
-      <Header style={styles.Header}>{heading}</Header>
+      <Header>{heading}</Header>
       <Body style={styles.Body}>{children}</Body>
     </View>
   );
@@ -25,7 +26,6 @@ const styles = StyleSheet.create({
   Body: {
     flex: 1,
   },
-  Header: {},
   View: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,

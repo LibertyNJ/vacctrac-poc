@@ -1,7 +1,8 @@
-import React from 'react';
+'use-strict';
 
-import { ScrollView, StyleSheet } from 'react-native';
 import Icon from '@expo/vector-icons/FontAwesome5';
+import React from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 
 import Bold from '../../components/Bold';
 import Paragraph from '../../components/Paragraph';

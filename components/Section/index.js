@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Header from './Header';
@@ -22,14 +23,13 @@ export default function Section({
 }) {
   return (
     <View style={[styles.View, isLastSection(last) && styles.last, style]}>
-      <Header style={[styles.Header, headerStyle]}>{heading}</Header>
+      <Header style={headerStyle}>{heading}</Header>
       {children}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  Header: {},
   last: {
     marginBottom: 0,
   },

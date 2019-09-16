@@ -1,7 +1,10 @@
+'use-state';
+
 import { connect } from 'react-redux';
 
 import { SectionList } from 'react-native';
 
+import createId from '../../../../util/create-id';
 import formatDate from '../../../../util/format-date';
 
 export default connect(mapStateToProps)(SectionList);
@@ -20,7 +23,7 @@ function extractEventsFromState(state) {
     ...state.vaccinations,
     {
       date: state.procedureDate,
-      key: 'procedure',
+      id: createId(),
       name: 'Procedure',
     },
   ];

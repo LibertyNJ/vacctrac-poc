@@ -1,8 +1,8 @@
-import React from 'react';
-
-import { FlatList, StyleSheet, View } from 'react-native';
+'use-strict';
 
 import Icon from '@expo/vector-icons/FontAwesome5';
+import React from 'react';
+import { FlatList, StyleSheet } from 'react-native';
 
 import Screen from '../../components/Screen';
 
@@ -11,7 +11,7 @@ import ListFooter from './components/ListFooter';
 import ListHeader from './components/ListHeader';
 import VaccineInfoCard from './components/VaccineInfoCard';
 
-import vaccineInfo from './scripts/vaccine-info';
+import vaccineInfo from './vaccine-info';
 
 Info.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
@@ -25,6 +25,7 @@ export default function Info() {
       <FlatList
         data={vaccineInfo}
         ItemSeparatorComponent={ItemSeparator}
+        keyExtractor={extractKey}
         ListFooterComponent={ListFooter}
         ListHeaderComponent={ListHeader}
         renderItem={VaccineInfoCard}
@@ -39,3 +40,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
 });
+
+function extractKey(item, index) {
+  return index.toString();
+}

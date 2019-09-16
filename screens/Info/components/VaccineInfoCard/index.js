@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import InfoButton from './InfoButton';
@@ -22,17 +23,12 @@ export default function VaccineInfoCard({ item: { cdcVisSlug, image, name } }) {
         name={name}
         style={styles.VaccineIdentification}
       />
-      <InfoButton
-        cdcVisSlug={cdcVisSlug}
-        name={name.full}
-        style={styles.InfoButton}
-      />
+      <InfoButton cdcVisSlug={cdcVisSlug} name={name.full} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  InfoButton: {},
   VaccineIdentification: {
     marginBottom: 20,
   },

@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use-strict';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import DateDisplay from './DateDisplay';
@@ -17,11 +18,7 @@ export default function DatePicker({ date, handleDateSet, label, style }) {
   return (
     <View style={[styles.View, style]}>
       <DateDisplay date={date} label={label} style={styles.DateDisplay} />
-      <SetDateButton
-        date={date}
-        handleDateSet={handleDateSet}
-        style={styles.SetDateButton}
-      />
+      <SetDateButton date={date} handleDateSet={handleDateSet} />
     </View>
   );
 }
@@ -30,7 +27,6 @@ const styles = StyleSheet.create({
   DateDisplay: {
     flexShrink: 1,
   },
-  SetDateButton: {},
   View: {
     alignItems: 'flex-start',
     flexDirection: 'row',
