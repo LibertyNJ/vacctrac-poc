@@ -1,8 +1,5 @@
-'use-strict';
-
-import { connect } from 'react-redux';
-
 import { SectionList } from 'react-native';
+import { connect } from 'react-redux';
 
 export default connect(mapStateToProps)(SectionList);
 

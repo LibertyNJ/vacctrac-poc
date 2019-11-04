@@ -1,7 +1,5 @@
-'use-strict';
-
 import { Alert } from 'react-native';
 
-export default function handleError(error) {
+export function handleError(error) {
   Alert.alert('An error occurred', error.message, [{ text: 'OK' }]);
 }

@@ -1,8 +1,6 @@
-'use-strict';
-
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 VaccineImage.propTypes = {
   image: PropTypes.node.isRequired,

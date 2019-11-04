@@ -1,9 +1,6 @@
-'use-strict';
-
 import { createTransform } from 'redux-persist';
 
-import isDate from '../../util/is-date';
-import isNull from '../../util/is-null';
+import { isDate, isNull } from '../../../../util';
 
 const transformConfig = {
   whitelist: ['vaccinations'],
@@ -34,5 +31,5 @@ function transformOutbound(vaccinations) {
 }
 
 function transformJSONToDate(value) {
-  isNull(value) ? value : new Date(value);
+  return isNull(value) ? value : new Date(value);
 }

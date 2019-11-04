@@ -1,5 +1,3 @@
-'use-strict';
-
 import { SET_PROCEDURE_DATE } from '../actions/types';
 
 export default function procedureDate(state = null, action) {

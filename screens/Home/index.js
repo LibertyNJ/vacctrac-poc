@@ -1,20 +1,16 @@
-'use-strict';
-
 import Icon from '@expo/vector-icons/FontAwesome5';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
-import Screen from '../../components/Screen';
-import Section from '../../components/Section';
 
 import UpcomingEventList from './containers/UpcomingEventList';
 import ListEmpty from './containers/UpcomingEventList/components/ListEmpty';
 import SectionFooter from './containers/UpcomingEventList/components/SectionFooter';
 import SectionHeader from './containers/UpcomingEventList/components/SectionHeader';
 import UpcomingEvent from './containers/UpcomingEventList/components/UpcomingEvent';
-
 import ProcedureDatePicker from './containers/ProcedureDatePicker';
 import VaccinationCounter from './containers/VaccinationCounter';
+import Screen from '../../components/Screen';
+import Section from '../../components/Section';
 
 Home.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (

@@ -1,12 +1,9 @@
-'use-strict';
-
 import Icon from '@expo/vector-icons/FontAwesome5';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Linking, StyleSheet, Text } from 'react-native';
-import PropTypes from 'prop-types';
 
 import Button from '../../../../components/Button';
-
 import handleError from '../../../../util/handle-error';
 
 InfoButton.propTypes = {

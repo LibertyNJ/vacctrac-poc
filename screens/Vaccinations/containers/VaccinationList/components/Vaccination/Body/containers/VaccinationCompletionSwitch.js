@@ -1,10 +1,7 @@
-'use-strict';
-
 import { connect } from 'react-redux';
 
 import LabeledSwitch from '../../../../../../../../components/LabeledSwitch';
-
-import { toggleVaccinationCompletion } from '../../../../../../../../actions/creators';
+import { toggleVaccinationCompletion } from '../../../../../../../../redux/actions/creators';
 
 export default connect(
   null,

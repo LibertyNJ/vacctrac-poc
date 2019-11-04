@@ -1,10 +1,7 @@
-'use-strict';
-
 import { connect } from 'react-redux';
 
 import DatePicker from '../../../components/DatePicker';
-
-import { setProcedureDate } from '../../../actions/creators';
+import { setProcedureDate } from '../../../redux/actions/creators';
 
 export default connect(
   mapStateToProps,

@@ -1,13 +1,10 @@
-'use-strict';
-
 import {
   ADD_VACCINATION_DOSE,
   REMOVE_VACCINATION_DOSE,
   SET_VACCINATION_DATE,
   TOGGLE_VACCINATION_COMPLETION,
 } from '../actions/types';
-
-import createId from '../util/create-id';
+import { createId } from '../../util';
 
 const vaccineNames = [
   'Flu',

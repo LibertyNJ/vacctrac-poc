@@ -1,17 +1,14 @@
-'use-strict';
-
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
 
+import { persistor, store } from './redux/store';
 import About from './screens/About';
 import Home from './screens/Home';
 import Info from './screens/Info';
 import Vaccinations from './screens/Vaccinations';
-
-import { persistor, store } from './store';
 
 const Navigation = createBottomTabNavigator({
   Home,

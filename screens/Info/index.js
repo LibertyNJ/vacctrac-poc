@@ -1,17 +1,13 @@
-'use-strict';
-
 import Icon from '@expo/vector-icons/FontAwesome5';
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-
-import Screen from '../../components/Screen';
 
 import ItemSeparator from './components/ItemSeparator';
 import ListFooter from './components/ListFooter';
 import ListHeader from './components/ListHeader';
 import VaccineInfoCard from './components/VaccineInfoCard';
-
 import vaccineInfo from './vaccine-info';
+import Screen from '../../components/Screen';
 
 Info.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (

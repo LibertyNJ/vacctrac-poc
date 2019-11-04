@@ -1,5 +1,3 @@
-'use-strict';
-
 import Icon from '@expo/vector-icons/FontAwesome5';
 import PropTypes from 'prop-types';
 import React from 'react';

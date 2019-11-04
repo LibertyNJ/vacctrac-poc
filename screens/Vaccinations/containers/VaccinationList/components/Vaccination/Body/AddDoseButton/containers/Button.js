@@ -1,10 +1,7 @@
-'use-strict';
-
 import { connect } from 'react-redux';
 
 import Button from '../../../../../../../../../components/Button';
-
-import { addVaccinationDose } from '../../../../../../../../../actions/creators';
+import { addVaccinationDose } from '../../../../../../../../../redux/actions/creators';
 
 export default connect(
   null,

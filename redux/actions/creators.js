@@ -1,5 +1,3 @@
-'use-strict';
-
 import {
   ADD_VACCINATION_DOSE,
   REMOVE_VACCINATION_DOSE,

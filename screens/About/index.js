@@ -1,5 +1,3 @@
-'use-strict';
-
 import Icon from '@expo/vector-icons/FontAwesome5';
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';

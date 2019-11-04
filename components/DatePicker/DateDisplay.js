@@ -1,12 +1,10 @@
-'use-strict';
-
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Bold from '../Bold';
 import Paragraph from '../Paragraph';
 
-import formatDate from '../../util/format-date';
+import { formatDate } from '../../util';
 
 DateDisplay.propTypes = {
   date: PropTypes.instanceOf(Date),

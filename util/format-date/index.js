@@ -1,6 +1,4 @@
-'use-strict';
-
-export default function formatDate(date) {
+export function formatDate(date) {
   const month = padLeadingZeros((date.getMonth() + 1).toString());
   const day = padLeadingZeros(date.getDate().toString());
   const year = date.getFullYear();

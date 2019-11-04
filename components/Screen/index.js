@@ -1,5 +1,3 @@
-'use-strict';
-
 import PropTypes from 'prop-types';
 import React from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';

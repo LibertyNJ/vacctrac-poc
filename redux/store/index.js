@@ -1,12 +1,10 @@
-'use-strict';
-
 import { AsyncStorage } from 'react-native';
 import { createStore } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 
-import rootReducer from '../reducers';
 import transformProcedureDate from './transforms/procedure-date';
 import transformVaccinations from './transforms/vaccinations';
+import rootReducer from '../reducers';
 
 const persistConfig = {
   key: 'root',

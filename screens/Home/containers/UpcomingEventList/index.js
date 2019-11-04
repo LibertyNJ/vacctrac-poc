@@ -1,11 +1,7 @@
-'use-state';
-
+import { SectionList } from 'react-native';
 import { connect } from 'react-redux';
 
-import { SectionList } from 'react-native';
-
-import createId from '../../../../util/create-id';
-import formatDate from '../../../../util/format-date';
+import {createId, formatDate} from '../../../../util';
 
 export default connect(mapStateToProps)(SectionList);
 
@@ -66,7 +62,7 @@ function isWithinThirtyDays(event) {
 }
 
 function isCompleted(event) {
-  return !!event.completed;
+  return !!event.isCompleted;
 }
 
 function calculateMillisecondsUntilEvent(event) {
